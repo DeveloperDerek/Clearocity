@@ -1,0 +1,392 @@
+* {
+	margin:0 auto;
+	padding:0;
+	box-sizing:border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* NAVBAR */
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #46749d;
+}
+
+nav li {
+  float: left;
+}
+
+nav .right {
+  float: right;
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: #111;
+  cursor: pointer;
+}
+
+/* HOMEBUTTON */
+
+.homebutton {
+  background-color: #46749d;
+  text-align: center;
+  padding: 15px;
+}
+
+.homebutton .link {
+  color: white;
+  text-transform: uppercase;
+  font-size: 32px;
+  text-decoration: none;
+}
+
+/* VIDEO */
+
+.video {
+  margin: 10px 6%;
+}
+
+.iframe-container{
+  margin: 13px 0;
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; 
+  height: 0;
+}
+
+.iframe-container .responsive-iframe{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video p {
+  text-align: center;
+}
+
+/* TIER */
+
+.tri-tier .heading {
+  font-weight: 400;
+  color: black;
+  text-align: center;
+  margin: 20px 6%;
+}
+
+.tri-tier .price-tier {
+  display: block;
+  justify-content: center;
+  padding: 0 15px;
+}
+
+.price-tier .tier {
+  background-color: white;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.price-tier h6 {
+  background-color: #dec05f;
+  text-transform: uppercase;
+  color: white;
+  padding: 8px 15px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.price-tier .body {
+  text-align: center;
+  color: #dec05f;
+}
+
+.price-tier .body img {
+  max-width: 95%;
+  height: auto;
+  padding-top: 5px;
+}
+
+.price-tier .body .price-tag {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 39px;
+  margin: 10px 0px;
+}
+
+.price-tier button {
+text-align: center;
+outline: none;
+-webkit-tap-highlight-color: transparent;
+text-decoration: none !important;
+display: inline-block;
+background-color: #dec05f;
+color: #fff;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+font-size: 24px;
+padding: 7px 15px;
+border-radius: 18px;
+cursor: pointer;
+border: none;
+box-shadow: 1px 4px 15px #dec05f;
+}
+
+
+.price-tier .body p {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.price-tier .body .shipping {
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.price-tier .body span {
+  text-decoration: line-through;
+  color: #dec05f;
+}
+
+.price-tier .body .total-price {
+  margin-top: 3px;
+  margin-bottom: 20px;
+  font-weight: 400;
+  color: black;
+}
+
+.price-tier .body h3 {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: red;
+}
+
+.price-tier .tier:hover {
+  box-shadow: 5px 5px 15px #dec05f;
+}
+
+/* GUARANTEE  */
+
+.guarantee {
+  margin: 20px 6%;
+}
+
+.guarantee .box {
+  display: block;
+  background-color: #fff4cf;
+  border: 1px solid rgba(148, 151, 138, 0);
+
+}
+
+.guarantee .box img {
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+
+.guarantee p {
+  line-height: 22px;
+  font-size: 12px;
+  margin: 10px 30px;
+}
+
+/* TESTIMONIALS */
+
+.testimonial {
+  margin: 0 6%;
+}
+
+.testimonial .personal {
+  margin: 30px auto;
+  padding: 30px;
+  border: 1px solid black;
+/*     box-shadow: 0px 0px 10px rgb(0 0 0 / 50%); */
+  border-radius: 5px;
+}
+
+
+.testimonial .profile .quote h4 {
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.testimonial .profile .quote h3 {
+  color: red;
+  font-size: 26px;
+  line-height: 126%;
+  text-align: center;
+  margin: 20px 0 22px;
+  /* font-size: 30px; */
+}
+
+.testimonial .profile img {
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+.testimonial .personal .para .quote-para {
+  line-height: 26px;
+}
+
+.testimonial .personal .para .name {
+  text-align: center;
+  margin-top: 11px;
+}
+
+.testimonial .para span {
+  color: rgb(240, 164, 49);
+}
+
+/* FAQs */
+
+.faq {
+  margin: 20px 6%;
+  background-color: #f5f5f5;
+  border: 1px solid #a2a2a2;
+}
+
+.faq h4 {
+  font-size: 34px;
+  text-align: center;
+  font-weight: 600;
+  margin: 0;
+  padding: 14px 0;
+  background-color: #46749d;
+  color: #fff;
+}
+
+.faq-section {
+  padding: 10px 0;
+  border-bottom: 1px dashed #a2a2a2;
+  margin-bottom: 0px;
+}
+
+.faq-section p {
+  padding: 0 20px;
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.faq-section p:first-child {
+  color: #46749d
+}
+
+/* REGISTER */
+
+.register .form-control {
+  margin: 10px 6%;
+}
+
+.register h1 {
+  text-align: center;
+  margin: 24px 6%;
+  font-family: Montserrat;
+  font-size: 41px;
+  font-weight: 300;
+}
+
+.register label {
+  font-size: 19px;
+}
+
+.register button {
+  background: #46749d;
+  color: #fff;
+  border: 1px solid #46749d;
+  padding: 0 20px;
+  text-align: center;
+  cursor: pointer;
+  min-height: 42px;
+  height: 40px;
+  line-height: 1.2;
+  vertical-align: top;
+  font-family: HelveticaNeue-Light,'Helvetica Neue Light',HelveticaNeue,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Full-width input fields */
+.register input[type=text], .register input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+.register .toLogin {
+  float: right;
+  text-decoration: none;
+  color: #46749d;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .tri-tier {
+      margin: 20px 6%;
+  }
+
+  .tri-tier .price-tier {
+      display: flex;
+      justify-content: center;
+      margin: 0px 10px;
+  }
+
+  .price-tier .tier {
+      margin: 0px 25px;
+  }
+
+  .guarantee {
+      padding: 35px 80px;
+  }
+
+  .guarantee .box {
+      background-color: #fff4cf;
+      display:flex;
+      align-items: center;
+  }
+
+  .guarantee .box img {
+      width: auto;
+      height: 100%;
+      padding: 15px;
+  }
+
+  .guarantee p {
+      line-height: 30px;
+      font-size: 18px;
+  }
+
+  .testimonial .personal .profile {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .testimonial .profile .quote h3 {
+      font-size: 30px;
+  }
+}
