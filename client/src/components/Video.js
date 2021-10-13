@@ -4,7 +4,7 @@ import vimeo from "../images/vimeo.mp4";
 const Video = () => {
     return (
         <div className="video">
-            <h1>Clearocity removes eye bags in minutes</h1>
+            <h1>Clearocity removes eye bags in <span>minutes</span></h1>
             <div className="iframe-container">
                 <video id="vid" className="responsive-iframe" autoPlay muted controls>
                     <source src={vimeo} type="video/mp4" />

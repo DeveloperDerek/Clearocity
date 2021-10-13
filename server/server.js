@@ -9,12 +9,12 @@ connectDB(); //activate database
 
 const app = express(); // activate express
 
-app.use("/api/user/", require("./routes/user.route"));
-
 app.use(logger("combined")); // login helper
 app.use(cookieParser()); // activate cookies
 app.use(express.json()); // alows req.body
 app.use(cors({ credentials: true, origin: "http://localhost:3000" })); // client to server
+
+app.use("/api/user/", require("./routes/user.route"));
 
 app.listen(process.env.PORT, () => 
     console.log(`Listening on port ${process.env.PORT}`)

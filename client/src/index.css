@@ -62,6 +62,15 @@ nav li a:hover {
   margin: 10px 6%;
 }
 
+.video h1 {
+  text-align: center;
+}
+
+.video span {
+  text-transform: uppercase;
+  color: #dec05f;
+}
+
 .iframe-container{
   margin: 13px 0;
   position: relative;
@@ -75,11 +84,12 @@ nav li a:hover {
   top:0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 90%;
 }
 
 .video p {
   text-align: center;
+  margin-top: -50px;
 }
 
 /* TIER */
@@ -291,13 +301,87 @@ box-shadow: 1px 4px 15px #dec05f;
   color: #46749d
 }
 
-/* REGISTER */
+/* NEWSLETTER */
 
-.register .form-control {
+.newsletter_bg {
+  background: #f1f1f2;
+}
+
+.newsletter {
+  padding-top: 12px;
+  padding-bottom: 17px;
+  text-align: center;
+}
+
+.newsletter h5,
+.newsletter p {
+  margin: 8px 0;
+  font-weight: 700;
+  color: #000!important;
+  padding-bottom: 5px;
+  padding-top: 0;
+}
+
+.newsletter .contact_email {
+  width: 320px;
+  display: inline-block;
+  height: 42px;
+  min-height: 42px;
+  margin: 0;
+  border: 1px solid #ccc;
+  outline: 0;
+  background: #fff;
+  color: #5f6a7d;
+  font: 13px HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+  margin-bottom: 15px;
+  -webkit-appearance: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  padding: 0 20px;
+  border-radius: 100px;
+}
+
+.newsletter button {
+  display: inline-block;
+  width: 120px;
+  margin-left: 5px;
+  padding-left: 0;
+  padding-right: 0;
+  float: none;
+  background: #46749d;
+  color: #fff;
+  border: 1px solid #46749d;
+  padding: 0 20px;
+  text-align: center;
+  cursor: pointer;
+  min-height: 42px;
+  height: 40px;
+  line-height: 1.2;
+  vertical-align: top;
+  font-family: HelveticaNeue-Light,'Helvetica Neue Light',HelveticaNeue,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  transition: all .2s linear;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 100px;
+}
+
+/* REGISTER/LOGIN */
+
+.register .form-control,
+.login .form-control {
   margin: 10px 6%;
 }
 
-.register h1 {
+.register h1,
+.login h1 {
   text-align: center;
   margin: 24px 6%;
   font-family: Montserrat;
@@ -305,11 +389,18 @@ box-shadow: 1px 4px 15px #dec05f;
   font-weight: 300;
 }
 
-.register label {
+.register label,
+.login label {
   font-size: 19px;
 }
 
-.register button {
+.register .error,
+.login .error {
+  color: red;
+}
+
+.register button,
+.login button {
   background: #46749d;
   color: #fff;
   border: 1px solid #46749d;
@@ -327,8 +418,10 @@ box-shadow: 1px 4px 15px #dec05f;
   letter-spacing: 1px;
 }
 
-/* Full-width input fields */
-.register input[type=text], .register input[type=password] {
+.register input[type=text],
+.register input[type=password],
+.login input[type=text],
+.login input[type=password] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -338,10 +431,25 @@ box-shadow: 1px 4px 15px #dec05f;
 }
 
 
-.register .toLogin {
+.register .toLogin,
+.login .toRegister {
   float: right;
   text-decoration: none;
   color: #46749d;
+}
+
+/* FOOTER */
+
+.footer {
+  color: #fff1f1;
+  font-size: 13px;
+  padding: 20px 0;
+  border-top: solid 1px #bcbabe;
+  background-color: #46749d;
+}
+
+.footer ul {
+  list-style: none;
 }
 
 @media only screen and (min-width: 768px) {

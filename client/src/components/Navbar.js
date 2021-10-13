@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { UserContext } from "../utils/UserContext";
 
 const Navbar = () => {
+    const {loggedUser} = useContext(UserContext);
+
+    console.log(loggedUser)
     return (
         <nav>
             <ul>
@@ -17,7 +21,11 @@ const Navbar = () => {
                     <a><i className="fas fa-shopping-cart"></i></a>
                 </li>
                 <li className="right">
+                    {loggedUser.check ?
+                    <a href="/login"><i className="far fa-user"></i> My Account</a>
+                    :
                     <a href="/login"><i className="far fa-user"></i> Login</a>
+                    }
                 </li>
             </ul>
         </nav>

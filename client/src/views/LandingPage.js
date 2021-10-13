@@ -5,6 +5,8 @@ import PriceTier from "../components/PriceTier";
 import Testimonial from "../components/Testimonial";
 import Video from "../components/Video";
 import Navbar from "../components/Navbar";
+import Newsletter from "../components/Newsletter";
+import Footer from "../components/Footer";
 
 
 const LandingPage = () => {
@@ -16,6 +18,8 @@ const LandingPage = () => {
             <Guarantee />
             <Testimonial />
             <Faq />
+            <Newsletter />
+            <Footer />
         </div>
     )
 }
