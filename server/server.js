@@ -15,6 +15,7 @@ app.use(express.json()); // alows req.body
 app.use(cors({ credentials: true, origin: "http://localhost:3000" })); // client to server
 
 app.use("/api/user/", require("./routes/user.route"));
+app.use("/api/mailchimp/", require("./routes/newsletter.route"));
 
 app.listen(process.env.PORT, () => 
     console.log(`Listening on port ${process.env.PORT}`)
