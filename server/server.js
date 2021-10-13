@@ -16,6 +16,8 @@ app.use(cors({ credentials: true, origin: "http://localhost:3000" })); // client
 
 app.use("/api/user/", require("./routes/user.route"));
 app.use("/api/mailchimp/", require("./routes/newsletter.route"));
+app.use("/api/cart/", require("./routes/cart.route"));
+app.use("/api/product/", require("./routes/product.route"));
 
 app.listen(process.env.PORT, () => 
     console.log(`Listening on port ${process.env.PORT}`)
