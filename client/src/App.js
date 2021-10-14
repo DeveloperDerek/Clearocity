@@ -19,7 +19,6 @@ function App() {
     axios
     .get("http://localhost:9000/api/user/getLoggedInUser", { withCredentials: true })
     .then((res) => {
-      console.log(res)
       setLoggedUser(prevData => ({
         ...prevData,
         check:true,

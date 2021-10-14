@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import left from "../images/1.png";
 import mid from "../images/2.png";
 import right from "../images/3.png";
+import axios from "axios";
 
 const PriceTier = () => {
+
+    const addProduct = (id) => {
+        const data = "send"
+        axios
+        .post(`http://localhost:9000/api/cart/addToCart/${id}`,
+        data,
+        { withCredentials: true })
+        .then(() => window.location.reload(false))
+        .catch((err) => console.log(err))
+    }
+
     return (
         <div className="tri-tier">
                 <h1 className="heading">Choose Your Discounted Package Below</h1>
@@ -13,7 +25,7 @@ const PriceTier = () => {
                         <div className="body">
                             <img src={left} />
                             <h5 className="price-tag">$69.00/Bottle</h5>
-                            <button>Buy Now</button>
+                            <button onClick={() => addProduct("6167575a0a5b93e68963f72b")}>Buy Now</button>
                             <p className="shipping">+ Shipping</p>
                             <p className="total-price"><span>$149</span> $69</p>
                         </div>
@@ -23,7 +35,7 @@ const PriceTier = () => {
                         <div className="body">
                             <img src={mid} />
                             <h5 className="price-tag">$49.00/Bottle</h5>
-                            <button>Buy Now</button>
+                            <button onClick={() => addProduct("616764c70a5b93e68963f984")}>Buy Now</button>
                             <p className="shipping best">Free Shipping</p>
                             <p className="total-price"><span>$894</span> $294</p>
                             <h3>You Save $600!</h3>
@@ -34,7 +46,7 @@ const PriceTier = () => {
                         <div className="body">
                             <img src={right} />
                             <h5 className="price-tag">$59.00/Bottle</h5>
-                            <button>Buy Now</button>
+                            <button onClick={() => addProduct("616765000a5b93e68963f987")}>Buy Now</button>
                             <p className="shipping">Free Shipping</p>
                             <p className="total-price"><span>$447</span> $177</p>
                             <h3>You Save $270!</h3>

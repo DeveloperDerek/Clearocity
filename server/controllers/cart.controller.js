@@ -6,10 +6,8 @@ module.exports = {
             { user: req.user._id} ,
             { $addToSet: 
                 {cartItems:{
-                    product: req.body.product_id,
-                    price: req.body.price,
-                    quantity: req.body.quantity
-                }} 
+                    product: req.params.id
+                }}
             },
             { upsert: true, new: true}
         )
@@ -32,8 +30,7 @@ module.exports = {
             { user: req.user._id, "cartItems._id": req.body.cartID } ,
             { $set: 
                 {
-                    "cartItems.$.price" : req.body.price,
-                    "cartItems.$.quantity" : req.body.quantity
+                    "cartItems.$.price" : req.body.price
                 }
             },
             { upsert: true, new: true}

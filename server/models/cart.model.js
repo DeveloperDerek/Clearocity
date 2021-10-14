@@ -12,14 +12,6 @@ const cartSchema = Mongoose.Schema(
                 type: Mongoose.Schema.Types.ObjectId,
                 required: true,
                 ref: 'Product'
-            },
-            price: {
-                type: Number,
-                required: true
-            },
-            quantity: {
-                type: Number,
-                required: true
             }
         }]
     }

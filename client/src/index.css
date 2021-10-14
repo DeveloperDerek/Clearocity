@@ -12,7 +12,7 @@ body {
 
 /* NAVBAR */
 
-nav ul {
+nav .navicon {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -20,15 +20,15 @@ nav ul {
   background-color: #46749d;
 }
 
-nav li {
+nav .navicon li {
   float: left;
 }
 
-nav .right {
+nav .navicon .right {
   float: right;
 }
 
-nav a {
+nav .navicon a {
   display: block;
   color: white;
   text-align: center;
@@ -36,9 +36,16 @@ nav a {
   text-decoration: none;
 }
 
-nav li a:hover {
-  background-color: #111;
+nav .navicon li a:hover {
+  background-color: #bcbabe;
   cursor: pointer;
+}
+
+.cartModal ul li img {
+  margin: auto;
+  width: 19%;
+  height: auto;
+  border: 1px solid #46749d
 }
 
 /* HOMEBUTTON */
@@ -89,7 +96,7 @@ nav li a:hover {
 
 .video p {
   text-align: center;
-  margin-top: -50px;
+  margin-top: -34px;
 }
 
 /* TIER */
@@ -109,8 +116,10 @@ nav li a:hover {
 
 .price-tier .tier {
   background-color: white;
-  border: 1px solid black;
   margin-bottom: 10px;
+  box-shadow: 4px 5px 27px -8px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 4px 5px 27px -8px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 5px 27px -8px rgba(0,0,0,0.75);
 }
 
 .price-tier h6 {
@@ -128,7 +137,7 @@ nav li a:hover {
 }
 
 .price-tier .body img {
-  max-width: 95%;
+  max-width: 42%;
   height: auto;
   padding-top: 5px;
 }
@@ -137,7 +146,7 @@ nav li a:hover {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  font-size: 39px;
+  font-size: 33px;
   margin: 10px 0px;
 }
 
@@ -227,8 +236,9 @@ box-shadow: 1px 4px 15px #dec05f;
 .testimonial .personal {
   margin: 30px auto;
   padding: 30px;
-  border: 1px solid black;
-/*     box-shadow: 0px 0px 10px rgb(0 0 0 / 50%); */
+  box-shadow: 4px 5px 27px -8px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 4px 5px 27px -8px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 5px 27px -8px rgba(0,0,0,0.75);
   border-radius: 5px;
 }
 
@@ -459,6 +469,8 @@ box-shadow: 1px 4px 15px #dec05f;
   font-size: 21px;
   line-height: 1.5;
   margin: 10px 0;
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
 }
 
 .footer h6 span {
@@ -468,7 +480,6 @@ box-shadow: 1px 4px 15px #dec05f;
 
 .footer ul {
   list-style: none;
-  border-top: 1px solid white;
 }
 
 .footer ul li {
@@ -529,6 +540,9 @@ box-shadow: 1px 4px 15px #dec05f;
       background-color: #fff4cf;
       display:flex;
       align-items: center;
+      box-shadow: 2px 3px 5px 0px rgba(100,95,43,0.75);
+      -webkit-box-shadow: 2px 3px 5px 0px rgba(100,95,43,0.75);
+      -moz-box-shadow: 2px 3px 5px 0px rgba(100,95,43,0.75);
   }
 
   .guarantee .box img {
