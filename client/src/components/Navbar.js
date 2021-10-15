@@ -5,13 +5,13 @@ import axios from "axios";
 const Navbar = () => {
     const {loggedUser} = useContext(UserContext);
     const [cart, setCart] = useState(null)
-    const [showCart, setShowCart] = useState(false);
 
     useEffect(() => {
         axios
         .get("http://localhost:9000/api/cart/view", { withCredentials: true })
         .then((res) => {
-            setCart(res.data.cartItems)
+            setCart(res.data.cartItems);
+            console.log(res.data.cartItems);
         })
         .catch((err) => console.log(err))
     }, [])
@@ -20,10 +20,6 @@ const Navbar = () => {
         return(
             <div>Loading...</div>
         )
-    }
-
-    const displayCart = () => {
-        setShowCart(!showCart)
     }
 
     return (
@@ -53,28 +49,33 @@ const Navbar = () => {
             {/* CART MODAL */}
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Shopping Cart</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <ul>
-                        {cart.map((item, idx) => {
-                            return(
-                                <li key={idx}>
-                                    <div>
-                                        
-                                    </div>
-                                </li>
-                                )
-                            })}
-                        </ul>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+                    <div class="modal-content cartModal">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Shopping Cart</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <ul>
+                            {cart.map((item, idx) => {
+                                return(
+                                    <li key={idx} className="row">
+                                        <div className="col">
+                                            <h5>{item.product.title}</h5>
+                                            <img src={`${item.product.imageKey}`} />
+                                            <h6>${item.product.price}</h6>
+                                        </div>
+                                        <div className="col">
+                                            <p>{item.product.description}</p>
+                                        </div>
+                                    </li>
+                                    )
+                                })}
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Check Out</button>
+                        </div>
                     </div>
                 </div>
             </div>

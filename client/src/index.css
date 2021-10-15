@@ -41,9 +41,21 @@ nav .navicon li a:hover {
   cursor: pointer;
 }
 
-.cartModal ul li img {
+.cartModal ul {
+  list-style-type: none;
+}
+
+.cartModal ul li {
+  margin-top: 3px;
+}
+
+.cartModal ul li h6 {
+  margin-top: 5px;
+}
+
+.cartModal img {
   margin: auto;
-  width: 19%;
+  width: 50%;
   height: auto;
   border: 1px solid #46749d
 }
@@ -386,8 +398,8 @@ box-shadow: 1px 4px 15px #dec05f;
 
 /* REGISTER/LOGIN */
 
-.register .form-control,
-.login .form-control {
+.register .formcontrol,
+.login .formcontrol {
   margin: 10px 6%;
 }
 
@@ -428,6 +440,7 @@ box-shadow: 1px 4px 15px #dec05f;
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin-bottom: 38px;
 }
 
 .register input[type=text],
@@ -444,7 +457,8 @@ box-shadow: 1px 4px 15px #dec05f;
 
 
 .register .toLogin,
-.login .toRegister {
+.login .toRegister,
+.shipping .toHome {
   float: right;
   text-decoration: none;
   color: #46749d;
@@ -515,6 +529,56 @@ box-shadow: 1px 4px 15px #dec05f;
   margin: 17px 0px 5px 0px;
   text-align: center;
 }
+
+/* SHIPPING */
+
+.shipping {
+  padding: 0 6%;
+}
+
+.shipping img {
+  display: block;
+  margin: 38px auto;
+}
+
+.shipping h2 {
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 27px;
+}
+
+.shipping button {
+  cursor: pointer;
+  display: inline-block;
+  background-color: #46749d;
+  background-clip: border-box;
+  box-sizing: border-box;
+  border: 1px transparent solid;
+  border-radius: 5px;
+  color: white;
+  font-weight: 500;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.cart {
+  background: #f1f1f2;
+  height: 100%;
+  padding: 0 6%;
+}
+
+.cart img {
+  width: auto;
+}
+
+.prices div {
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+
 
 @media only screen and (min-width: 768px) {
   /* For desktop: */

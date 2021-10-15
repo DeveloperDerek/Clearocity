@@ -27,7 +27,7 @@ const Register = () => {
     }
 
     return(
-        <form className="form-control" onSubmit={register}>
+        <form className="formcontrol" onSubmit={register}>
             <div className="input-label-group">
                 {errors.firstName ?
                     <label className="error">{errors.firstName?.message}</label> 

@@ -7,9 +7,9 @@ import { UserContext } from "./utils/UserContext";
 import LandingPage from './views/LandingPage';
 import LoginPage from './views/LoginPage';
 import RegisterPage from './views/RegisterPage';
+import InformationPage from './views/InformationPage';
 
 function App() {
-
   const [loggedUser, setLoggedUser] = useState({
     check:false,
     userInfo:{}
@@ -35,6 +35,7 @@ function App() {
       <LandingPage path="/" />
       <LoginPage path="/login" />
       <RegisterPage path="/register" />
+      <InformationPage path="/checkout/info" />
     </Router>
     </UserContext.Provider>
     </>

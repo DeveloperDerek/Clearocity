@@ -24,7 +24,7 @@ const Login = () => {
     }
 
     return(
-        <form className="form-control" onSubmit={login}>
+        <form className="formcontrol" onSubmit={login}>
             <div className="input-label-group">
                 {errors.email ?
                     <label className="error">{errors.email?.message}</label> 
