@@ -58,4 +58,6 @@ userSchema.pre("save", function(next) {
 
 userSchema.plugin(uniqueValidator, {message: "{PATH} is already taken"});
 
-module.exports = mongoose.model("User", userSchema)
+const User = mongoose.model("User", userSchema)
+
+module.exports = User;

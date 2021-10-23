@@ -42,7 +42,7 @@ module.exports = {
         }
     },
     async removeFromCart(req, res) {
-        const productId = req.body.productId;
+        const productId = req.body.product_id;
         try {
             const cart = await Cart.findOne({ user: req.user._id})
             let itemIndex = await cart.cartItems.findIndex(p => p.product._id == productId);

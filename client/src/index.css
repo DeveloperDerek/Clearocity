@@ -43,14 +43,15 @@ nav .navicon li a:hover {
 
 .cartModal ul {
   list-style-type: none;
+  padding-left: 0px;
 }
 
 .cartModal ul li {
-  margin-top: 3px;
+  margin: 3px 2px 10px 2px;
 }
 
-.cartModal ul li h6 {
-  margin-top: 5px;
+.cartModal ul li p {
+  font-size: 12px;
 }
 
 .cartModal img {
@@ -539,6 +540,7 @@ box-shadow: 1px 4px 15px #dec05f;
 .shipping img {
   display: block;
   margin: 38px auto;
+  cursor: pointer;
 }
 
 .shipping h2 {
@@ -564,7 +566,6 @@ box-shadow: 1px 4px 15px #dec05f;
 
 .cart {
   background: #f1f1f2;
-  height: 100%;
   padding: 30px 6%;
 }
 
@@ -575,10 +576,7 @@ box-shadow: 1px 4px 15px #dec05f;
 .prices div {
   display: flex;
   justify-content: flex-start;
-
 }
-
-
 
 @media only screen and (min-width: 768px) {
   /* For desktop: */
