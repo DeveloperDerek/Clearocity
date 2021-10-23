@@ -1,5 +1,3 @@
-import React from "react";
-
 const Guarantee = () => {
     return (
         <div class="guarantee">

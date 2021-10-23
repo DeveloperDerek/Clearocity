@@ -8,7 +8,7 @@ const connectDB = require("./configs/database"); //import database
 connectDB(); //activate database
 
 const app = express(); // activate express
-
+app.use(express.static('public'));
 app.use(logger("combined")); // login helper
 app.use(cookieParser()); // activate cookies
 app.use(express.json()); // alows req.body
@@ -18,6 +18,7 @@ app.use("/api/user/", require("./routes/user.route"));
 app.use("/api/mailchimp/", require("./routes/newsletter.route"));
 app.use("/api/cart/", require("./routes/cart.route"));
 app.use("/api/product/", require("./routes/product.route"));
+app.use("/api/stripe/", require("./routes/stripe.route"));
 
 app.listen(process.env.PORT, () => 
     console.log(`Listening on port ${process.env.PORT}`)

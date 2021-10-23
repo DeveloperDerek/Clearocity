@@ -9,7 +9,7 @@ const Cart = () => {
         .get("http://localhost:9000/api/cart/view", { withCredentials: true })
         .then((res) => {
             setCart(res.data.cartItems);
-            console.log(res.data.cartItems);
+            console.log(res.data);
         })
         .catch((err) => console.log(err))
     }, [])
