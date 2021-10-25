@@ -85,7 +85,7 @@ module.exports = {
                     cart.cartItems[itemIndex] = productItem;
                 }
                 cart.bill = cart.cartItems.reduce((sum, item) => sum + item.price * item.quantity,0);
-                cart = await cart.save();
+                await cart.save();
                 return res.status(201).send(cart);
             }     
         }

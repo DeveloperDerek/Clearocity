@@ -6,8 +6,8 @@ import axios from "axios";
 // "6167575a0a5b93e68963f72b"
 const PriceTier = () => {
     
-    const addProduct = () => {
-        const data = { productId:"616765000a5b93e68963f987", quantity:1 }
+    const addProduct = (id) => {
+        const data = { productId:id, quantity:1 }
         axios
         .post("http://localhost:9000/api/cart/addToCart",
         data,
@@ -25,7 +25,7 @@ const PriceTier = () => {
                         <div className="body">
                             <img src={left} />
                             <h5 className="price-tag">$28 / Bottle</h5>
-                            <button onClick={() => addProduct()}>Add to Cart</button>
+                            <button onClick={() => addProduct("6167575a0a5b93e68963f72b")}>Add to Cart</button>
                             <p className="shipping">+ Shipping</p>
                             <p className="total-price"><span>$60</span> $27.95</p>
                         </div>

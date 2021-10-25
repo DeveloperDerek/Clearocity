@@ -28,6 +28,11 @@ nav .navicon .right {
   float: right;
 }
 
+nav ul li .removeBtn {
+  margin:0 auto;
+  display:block;
+}
+
 nav .navicon a {
   display: block;
   color: white;
@@ -56,7 +61,7 @@ nav .navicon li a:hover {
 
 .cartModal img {
   margin: auto;
-  width: 50%;
+  width: 75%;
   height: auto;
   border: 1px solid #46749d
 }
@@ -424,8 +429,8 @@ box-shadow: 1px 4px 15px #dec05f;
   color: red;
 }
 
-.register button,
-.login button {
+.register .registerButton,
+.login .loginButton {
   background: #46749d;
   color: #fff;
   border: 1px solid #46749d;
@@ -566,17 +571,17 @@ box-shadow: 1px 4px 15px #dec05f;
 
 .cart {
   background: #f1f1f2;
-  padding: 30px 6%;
+  padding: 27px 6%;
 }
 
 .cart img {
-  width: auto;
+  width: 50%;
 }
 
-.prices div {
-  display: flex;
-  justify-content: flex-start;
+.cart i {
+  cursor: pointer;
 }
+
 
 @media only screen and (min-width: 768px) {
   /* For desktop: */
