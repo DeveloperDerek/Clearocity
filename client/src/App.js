@@ -8,6 +8,8 @@ import LandingPage from './views/LandingPage';
 import LoginPage from './views/LoginPage';
 import RegisterPage from './views/RegisterPage';
 import InformationPage from './views/InformationPage';
+import CheckoutPage from './views/CheckoutPage';
+import AccountPage from './views/AccountPage';
 
 function App() {
   const [loggedUser, setLoggedUser] = useState({
@@ -36,6 +38,8 @@ function App() {
       <LoginPage path="/login" />
       <RegisterPage path="/register" />
       <InformationPage path="/checkout/info" />
+      <CheckoutPage path="/checkout/payment" />
+      <AccountPage path="/account" />
     </Router>
     </UserContext.Provider>
     </>

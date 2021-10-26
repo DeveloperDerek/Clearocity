@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import StripeButton from "react-stripe-checkout";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "../components/CheckoutForm";
 
 const Cart = () => {
     const [cart, setCart] = useState(null);
@@ -19,7 +21,7 @@ const Cart = () => {
         const dec = value.split('.')[1]
         const len = dec && dec.length > 2 ? dec.length : 2
         const final = Number(num).toFixed(len)
-        return Math.abs(final);
+        return final
     }
 
     const removeFromCart = (id) => {
@@ -38,28 +40,13 @@ const Cart = () => {
         .catch((err) => console.log(err))
     }
 
-    const makePayment = async (token) => {
-        const source = { token }
-        axios
-        .post("https://localhost:9000/api/order/checkout", source, { withCredentials:true })
-        .then((res) => {
-            console.log(res)
-            // create method
-            const {status} = res
-            console.log('STATUS', status)
-        })
-        // .then(() => {
-        //     alert('Payment Successful'),
-        // })
-        .catch(err => console.log(err))
-        
-    }
-
     if (cart === null) {
         return(
             <div>loading...</div>
         )
     }
+
+    const stripeTestPromise = loadStripe("pk_test_51JmmCnK6zlXkvz1MmX1SHnoBuIDIuBnTn9WqS1p0HyrVDQY7JGpgUeeUav1OiKFdfbPUTOcAoGNOI3M8AnGOreg900Db2lFaDn")
 
     return(
         <div className="cart">
@@ -96,13 +83,9 @@ const Cart = () => {
             <div className="text-center">
                 <h5>Total ${addZeroes(cart.bill)}</h5>
             </div>
-            <StripeButton
-                stripeKey={"pk_test_51JmmCnK6zlXkvz1MmX1SHnoBuIDIuBnTn9WqS1p0HyrVDQY7JGpgUeeUav1OiKFdfbPUTOcAoGNOI3M8AnGOreg900Db2lFaDn"}
-                token={makePayment}
-                amount={cart.bill * 100}
-            >
-                <button className="btn btn-success">Pay with stripe</button>
-            </StripeButton>
+            <Elements stripe={stripeTestPromise}>
+                <CheckoutForm />
+            </Elements>
         </div>
     )
 }

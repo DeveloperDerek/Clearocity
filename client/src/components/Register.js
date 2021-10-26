@@ -34,7 +34,7 @@ const Register = () => {
                 :
                     <label className="form-label">First Name</label>
                 }
-                <input type="text" value={firstName} onChange={(e) => {setFirstName(e.target.value)}}/>
+                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
             </div>
             <div className="input-label-group">
                 {errors.lastName ?

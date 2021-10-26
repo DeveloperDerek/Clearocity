@@ -1,69 +1,84 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../images/logo.jpeg";
 import { Link, navigate } from "@reach/router";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import CheckoutForm from "./CheckoutForm";
-const promise = loadStripe("pk_test_51JmmCnK6zlXkvz1MmX1SHnoBuIDIuBnTn9WqS1p0HyrVDQY7JGpgUeeUav1OiKFdfbPUTOcAoGNOI3M8AnGOreg900Db2lFaDn");
+import axios from "axios";
 
 const Shipping = () => {
-    
+    const [email, setEmail] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [address, setAddress] = useState("");
+    const [suite, setSuite] = useState("");
+    const [city, setCity] = useState("");
+    const [state, setState] = useState("");
+    const [zip, setZip] = useState("");
+
+    const orderAddress = (e) => {
+        const data = { email, firstName, lastName, address, suite, city, state, zip }
+        e.preventDefault()
+        axios
+        .post("http:localhost:9000/api/order/startorder",
+            { data },
+            { withCredentials: true })
+        .then(() => navigate("/checkout/payment"))
+        .catch((err) => console.log(err))
+    }
+
     return(
         <div className="shipping">
             <img src={logo} onClick={() => navigate("/")}/>
             <h2>Contact Information</h2>
-            <form>
+            <form onSubmit={() => orderAddress()}>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
-                    <label for="floatingInput">Email or mobile phone number</label>
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" onChange={(e) => setEmail(e.target.value)}/>
+                    <label for="floatingInput">Email</label>
                 </div>
                 <div className="row">
                     <div className="col-sm">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
+                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" onChange={(e) => setFirstName(e.target.value)}/>
                             <label for="floatingInput">First Name</label>
                         </div>
                     </div>
                     <div className="col-sm">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
+                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" onChange={(e) => setLastName(e.target.value)}/>
                             <label for="floatingInput">Last Name</label>
                         </div>
                     </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" onChange={(e) => setAddress(e.target.value)}/>
                     <label for="floatingInput">Address</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" onChange={(e) => setSuite(e.target.value)}/>
                     <label for="floatingInput">Apartment, suite, etc. (optional)</label>
                 </div>
                 <div className="row">
                     <div className="col-sm">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
+                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" onChange={(e) => setCity(e.target.value)}/>
                             <label for="floatingInput">City</label>
                         </div>
                     </div>
                     <div className="col-sm">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
-                            <label for="floatingInput">State</label>
+                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"onChange={(e) => setState(e.target.value)}/>
+                            <label for="floatingInput">State (abbr)</label>
                         </div>
                     </div>
                     <div className="col-sm">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
+                            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com"onChange={(e) => setZip(e.target.value)}/>
                             <label for="floatingInput">ZIP code</label>
                         </div>
                     </div>
+                <button>Continue to checkout</button>
                 </div>
-                {/* <button>Continue to checkout</button> */}
-                <Elements stripe={promise}>
-                    <CheckoutForm />
-                </Elements>
-                <Link className="toHome" to="/login">Return to home <i class="fas fa-long-arrow-alt-right"></i></Link>
+
+                <Link className="toHome" to="/"><i class="fas fa-long-arrow-alt-left"></i> Return to home </Link>
+                <Link className="toPay" to="/checkout/payment">Contine to payment <i class="fas fa-long-arrow-alt-right"></i></Link>
             </form>
         </div>
     )

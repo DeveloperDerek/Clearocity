@@ -9,3 +9,4 @@ router.post("/logout", userController.logout);
 router.get("/getLoggedInUser", userController.getLoggedInUser);
 
 module.exports = router;
+

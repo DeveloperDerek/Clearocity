@@ -48,10 +48,14 @@ const Navbar = () => {
         .catch((err) => console.log(err))
     }
 
-    if (cart === null) {
-        return(
-            <div>Loading...</div>
-        )
+    const logout = () => {
+        axios
+            .post("http://localhost:9000/api/user/logout", {}, { withCredentials: true })
+            .then((res) => {
+                console.log(res);
+                window.location.reload(false); //to refresh the page
+            })
+            .catch(console.log);
     }
 
     return (
@@ -67,27 +71,39 @@ const Navbar = () => {
                     <a><i className="far fa-envelope"></i></a>
                 </li>
                 <li className="right">
-                    <a data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fas fa-shopping-cart"
-                    ></i></a>
-                </li>
-                <li className="right">
-                    {loggedUser.check ?
-                    <a href="/login"><i className="far fa-user"></i> My Account</a>
-                    :
-                    <a href="/login"><i className="far fa-user"></i> Login</a>
+                    {!cart ?
+                        ""
+                        :
+                        <a data-bs-toggle="modal" data-bs-target="#cartModal">{cart.cartItems.length} <i className="fas fa-shopping-cart"
+                        ></i></a>
                     }
                 </li>
+
+                    {loggedUser.check ?
+                    <>
+                        <li className="right">
+                            <span className="logout" onClick={() => logout()}>Logout</span>
+                        </li>
+                        <li className="right">
+                            <a href="/account"><i className="far fa-user"></i> My Account</a>
+                        </li>
+                    </>
+                :
+                    <li className="right">
+                        <a href="/login"><i className="far fa-user"></i> Login</a>
+                    </li>
+                }
             </ul>
 
-            {/* CART MODAL */}
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content cartModal">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Shopping Cart</h5>
-                            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        {cart ?
+            <div className="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content cartModal">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Shopping Cart</h5>
+                            <button className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div className="modal-body">
                             <ul>
                             {cart.cartItems.map((item, idx) => {
                                 return(
@@ -105,9 +121,9 @@ const Navbar = () => {
                                             Quantity: {item.quantity}&nbsp; 
                                             <i className="fas fa-chevron-up" onClick={() => updateQty(item.quantity+1, item.product._id)}></i>
                                             {item.quantity > 1 ?
-                                            <i className="fas fa-chevron-down" onClick={() => updateQty(item.quantity-1, item.product._id)}></i>
-                                            :
-                                            ""
+                                                <i className="fas fa-chevron-down" onClick={() => updateQty(item.quantity-1, item.product._id)}></i>
+                                                :
+                                                ""
                                             }
                                             </h6>
                                             <button className="btn-sm btn-outline-danger removeBtn" onClick={() => removeFromCart(item.product._id)}>Remove</button>
@@ -118,10 +134,10 @@ const Navbar = () => {
                                 <h6 className="text-center">Total: ${addZeroes(cart.bill)}</h6>
                             </ul>
                         </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <div className="modal-footer">
+                            <button className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             {cart.cartItems.length > 0 ? 
-                                <button data-bs-dismiss="modal" onClick={() => navigate("/checkout/info")} class="btn btn-primary">Check Out</button>
+                                <button data-bs-dismiss="modal" onClick={() => navigate("/checkout/info")} className="btn btn-primary">Check Out</button>
                                 :
                                 ""
                             }
@@ -129,6 +145,9 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
+        :
+        ""
+        }    
         </nav>
     )
 }
