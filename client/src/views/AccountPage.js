@@ -1,12 +1,12 @@
 import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
-import OrderHistory from "../components/OrderHistory"
+import OrderTab from "../components/OrderTab"
 
 const AccountPage = () => {
     return(
         <div>
             <Navbar />
-            <OrderHistory />
+            <OrderTab />
             <Footer />
         </div>
         )

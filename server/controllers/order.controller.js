@@ -1,3 +1,4 @@
+const Address = require("../models/address.model");
 const Cart = require("../models/cart.model");
 const Order = require("../models/order.model");
 const User = require("../models/user.model");
@@ -18,7 +19,6 @@ module.exports = {
             // let user = await User.findOne({ id: req.user._id });
             const email = req.user.email;
             if (cart) {
-                console.log("stripee")
                 const charge = await stripe.changes.create({
                     amount: cart.bill,
                     currency: 'usd',
@@ -44,14 +44,13 @@ module.exports = {
             res.status(500).send("Something went wrong");
         }
     },
-    async startOrder (req, res) {
-        await Order.create(req.body)
-            .then((user) => res.json(user))
+    async createAddress (req, res) {
+        await Address.create(req.body)
+            .then((address) => res.json(address))
             .catch((err) => res.status(400).json(err))
     },
     async createPaymentIntent (req, res) {
         let cart = await Cart.findOne({ user: req.user._id });
-        let order = await Order.findOne({}, { sort: { 'created_at' : -1 }})
         // Create a PaymentIntent with the order amount and currency
         let { id } = req.body
         try {
@@ -65,9 +64,12 @@ module.exports = {
             if (!payment) {
                 throw Error('Payment failed')
             } else {
-                order.cartItems = cart.cartItems,
-                order.bill = cart.bill
-                await order.save();
+                await Order.create({
+                    user: req.user._id,
+                    cartItems: cart.cartItems,
+                    bill: cart.bill,
+                    address: req.params.id
+                });
                 await Cart.findByIdAndDelete({ _id: cart._id })
                 // return res.status(201).send(order);
                 res.json({
@@ -85,6 +87,13 @@ module.exports = {
     },
     async viewOrders (req, res) {
         const orders = await Order.find({ user: req.user._id })
+            .populate('address')
         return res.json(orders)
+    },
+    async viewOrder (req, res) {
+        const order = await Order.findOne({ _id: req.params.id })
+            .populate('address')
+            .populate('cartItems.product')
+        return res.json(order)
     }
 }

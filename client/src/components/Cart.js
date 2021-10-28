@@ -4,8 +4,10 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../components/CheckoutForm";
 
-const Cart = () => {
+const Cart = (props) => {
+    const {address} = props;
     const [cart, setCart] = useState(null);
+    console.log(address)
 
     useEffect(() => {
         axios
@@ -84,7 +86,7 @@ const Cart = () => {
                 <h5>Total ${addZeroes(cart.bill)}</h5>
             </div>
             <Elements stripe={stripeTestPromise}>
-                <CheckoutForm />
+                <CheckoutForm address={address} />
             </Elements>
         </div>
     )

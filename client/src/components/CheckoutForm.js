@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { navigate } from "@reach/router";
-import { CardElement, useElements, useStripe, PaymentElement } from "@stripe/react-stripe-js"
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import axios from "axios"
 
 const cardStyle = {
@@ -21,7 +21,9 @@ const cardStyle = {
   }
 };
 
-const CheckoutForm = () => {
+const CheckoutForm = (props) => {
+    const {address} = props;
+    console.log(address)
     const stripe = useStripe()
     const elements = useElements()
     const [processing, setProcessing] = useState('');
@@ -36,7 +38,7 @@ const CheckoutForm = () => {
         try {
             setProcessing(true);
             const {id} = paymentMethod
-            const response = await axios.post("http://localhost:9000/api/order/create-payment-intent", {
+            const response = await axios.post(`http://localhost:9000/api/order/create-payment-intent/${address}`, {
                 id
             }, { withCredentials:true })
 
@@ -54,7 +56,7 @@ const CheckoutForm = () => {
     return (
         <div className="checkout-form">
           <form id="payment-form" onSubmit={handleSubmit}>
-              <PaymentElement id="card-element" options={cardStyle}/>
+              <CardElement id="card-element" options={cardStyle}/>
               <button id="submit">
                 <span id="button-text">
                   {processing ? (

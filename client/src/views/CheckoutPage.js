@@ -1,9 +1,10 @@
 import Cart from "../components/Cart";
 
-const CheckoutPage = () => {
+const CheckoutPage = (props) => {
+    const {address} = props;
     return(
         <div className="container-fluid">
-            <Cart />
+            <Cart address={address} />
         </div>
         )
 }

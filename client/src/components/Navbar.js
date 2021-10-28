@@ -34,7 +34,7 @@ const Navbar = () => {
         const dec = value.split('.')[1]
         const len = dec && dec.length > 2 ? dec.length : 2
         const final = Number(num).toFixed(len)
-        return Math.abs(final);
+        return final;
     }
 
     const updateQty = (quantity, productId) => {

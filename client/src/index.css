@@ -42,7 +42,8 @@ nav .navicon a,
   text-decoration: none;
 }
 
-nav .navicon li a:hover {
+nav .navicon li a:hover,
+.logout:hover {
   background-color: #bcbabe;
   cursor: pointer;
 }

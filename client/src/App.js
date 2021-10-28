@@ -10,6 +10,7 @@ import RegisterPage from './views/RegisterPage';
 import InformationPage from './views/InformationPage';
 import CheckoutPage from './views/CheckoutPage';
 import AccountPage from './views/AccountPage';
+import OrderPage from './views/OrderPage';
 
 function App() {
   const [loggedUser, setLoggedUser] = useState({
@@ -38,8 +39,9 @@ function App() {
       <LoginPage path="/login" />
       <RegisterPage path="/register" />
       <InformationPage path="/checkout/info" />
-      <CheckoutPage path="/checkout/payment" />
+      <CheckoutPage path="/checkout/:address" />
       <AccountPage path="/account" />
+      <OrderPage path="/order/:id" />
     </Router>
     </UserContext.Provider>
     </>
