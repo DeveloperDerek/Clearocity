@@ -48,16 +48,6 @@ const Navbar = () => {
         .catch((err) => console.log(err))
     }
 
-    const logout = () => {
-        axios
-            .post("http://localhost:9000/api/user/logout", {}, { withCredentials: true })
-            .then((res) => {
-                console.log(res);
-                window.location.reload(false); //to refresh the page
-            })
-            .catch(console.log);
-    }
-
     return (
         <nav>
             <ul className="navicon">
@@ -82,10 +72,7 @@ const Navbar = () => {
                     {loggedUser.check ?
                     <>
                         <li className="right">
-                            <span className="logout" onClick={() => logout()}>Logout</span>
-                        </li>
-                        <li className="right">
-                            <a href="/account"><i className="far fa-user"></i> My Account</a>
+                            <a href="/search-order"><i className="far fa-user"></i> My Account</a>
                         </li>
                     </>
                 :

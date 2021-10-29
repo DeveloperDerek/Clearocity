@@ -31,16 +31,16 @@ const OrderHistory = (props) => {
     }
 
     return(
-        <div className="container-fluid text-center">
+        <div className="container-fluid text-center order-history">
             <h3>Order ID: {order._id}</h3>
-            <h6>{moment(order.createdAt).format("MMMM Do, YYYY")}</h6>
-            <h6>Name: {order.address.firstName} {order.address.lastName}</h6>
             <h6>Address: {order.address.address}, {order.address.suite ? order.address.suite + ",": ""} {order.address.city} {order.address.state} {order.address.zip}</h6>
+            <h6>Processed on {moment(order.createdAt).format("MMMM Do, YYYY")}</h6>
+            <h6>Name: {order.address.firstName} {order.address.lastName}</h6>
             <h6>Paid: ${addZeroes(order.bill)}</h6>
                 {order.cartItems.map((item, idx) => {
                     return(
                         <div key={idx}>
-                            <h6>{item.product.title}</h6>
+                            <h6>- {item.product.title}</h6>
                             <h6>Qty: {item.quantity} ${item.price}</h6>
                         </div>
                     )

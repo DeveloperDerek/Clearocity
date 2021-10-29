@@ -11,6 +11,10 @@ import InformationPage from './views/InformationPage';
 import CheckoutPage from './views/CheckoutPage';
 import AccountPage from './views/AccountPage';
 import OrderPage from './views/OrderPage';
+import PrivacyPage from './views/PrivacyPage';
+import RefundPage from './views/RefundPage';
+import ShippingPage from './views/ShippingPage';
+import TermsServicePage from './views/TermsServicePage';
 
 function App() {
   const [loggedUser, setLoggedUser] = useState({
@@ -40,8 +44,12 @@ function App() {
       <RegisterPage path="/register" />
       <InformationPage path="/checkout/info" />
       <CheckoutPage path="/checkout/:address" />
-      <AccountPage path="/account" />
+      <AccountPage path="/search-order" />
       <OrderPage path="/order/:id" />
+      <PrivacyPage path="/policies/privacy" />
+      <RefundPage path="/policies/refund" />
+      <ShippingPage path="/policies/shipping" />
+      <TermsServicePage path="/policies/terms-and-service" />
     </Router>
     </UserContext.Provider>
     </>

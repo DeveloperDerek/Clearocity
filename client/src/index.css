@@ -33,8 +33,7 @@ nav ul li .removeBtn {
   display:block;
 }
 
-nav .navicon a,
-.logout {
+nav .navicon a {
   display: block;
   color: white;
   text-align: center;
@@ -42,8 +41,7 @@ nav .navicon a,
   text-decoration: none;
 }
 
-nav .navicon li a:hover,
-.logout:hover {
+nav .navicon li a:hover {
   background-color: #bcbabe;
   cursor: pointer;
 }
@@ -353,7 +351,8 @@ box-shadow: 1px 4px 15px #dec05f;
   font-size: 17px;
 }
 
-.newsletter .contact_email {
+.newsletter .contact_email,
+.order-tab input {
   width: 320px;
   display: inline-block;
   height: 42px;
@@ -372,7 +371,8 @@ box-shadow: 1px 4px 15px #dec05f;
   border-radius: 100px;
 }
 
-.newsletter button {
+.newsletter button,
+.order-tab .searchBtn {
   display: inline-block;
   width: 120px;
   margin-left: 5px;
@@ -511,13 +511,16 @@ box-shadow: 1px 4px 15px #dec05f;
 
 .footer ul li {
   color: white;
-  text-decoration: none;
   line-height: 1.7;
-  color:#000
+}
+
+.footer ul li a:visited {
+  color: white;
 }
 
 .footer ul li a {
   font-size: 16px;
+  text-decoration: none;
 }
 
 .social-icons {
@@ -726,6 +729,95 @@ box-shadow: 1px 4px 15px #dec05f;
   transform-origin: 0px 10.2px;
   -webkit-animation: loading 2s infinite ease;
   animation: loading 2s infinite ease;
+}
+
+/* ORDER TAB */
+
+.order-tab {
+  margin: 104px auto;
+}
+
+.order-tab form {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.order-tab p {
+  margin: 8px 0;
+  color: #000!important;
+  padding-bottom: 5px;
+  padding-top: 0;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+.order-tab h3 {
+  text-align: center;
+}
+
+.order-id {
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 11px;
+}
+
+/* ORDER HISTORY */
+
+.order-history {
+  margin: 40px auto;
+}
+
+.order-history h3 {
+  letter-spacing: 1px;
+  margin-bottom: 13px;
+}
+
+/* PRIVACY PAGE */
+
+.policies {
+  margin: 15px 6% 
+}
+
+.policies h1 {
+  font-family: Montserrat;
+  text-align: center;
+  letter-spacing: 0;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+/* LOGOUT BUTTON */
+
+.logoutt {
+  margin:0 auto;
+  display:block;
+  width: 120px;
+  padding-left: 0;
+  padding-right: 0;
+  float: none;
+  background: #46749d;
+  color: #fff;
+  border: 1px solid #46749d;
+  padding: 0 20px;
+  text-align: center;
+  cursor: pointer;
+  min-height: 42px;
+  height: 40px;
+  line-height: 1.2;
+  font-family: HelveticaNeue-Light,'Helvetica Neue Light',HelveticaNeue,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  transition: all .2s linear;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 100px;
 }
 
 @keyframes loading {

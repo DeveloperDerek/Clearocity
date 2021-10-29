@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "@reach/router";
 
 const Footer = () => {
     const [legal, setLegal] = useState(false);
@@ -26,16 +27,16 @@ const Footer = () => {
                     {legal ?
                     <ul>
                         <li>
-                            <a>Privacy Policy</a>
+                            <a href="/policies/privacy">Privacy Policy</a>
                         </li>
                         <li>
-                            <a>Refund Policy</a>
+                            <a href="/policies/refund">Refund Policy</a>
                         </li>
                         <li>
-                            <a>Shipping Policy</a>
+                            <a href="/policies/shipping">Shipping Policy</a>
                         </li>
                         <li>
-                            <a>Terms of Service</a>
+                            <a href="/policies/terms-and-service">Terms of Service</a>
                         </li>
                     </ul>
                     :
@@ -53,10 +54,10 @@ const Footer = () => {
                     {clearocity ?
                     <ul>
                         <li>
-                            <a>Home</a>
+                            <a href="/">Home</a>
                         </li>
                         <li>
-                            <a>Track Order</a>
+                            <a href="/account">Track Order</a>
                         </li>
                         <li>
                             <a>Contact Us</a>
