@@ -52,13 +52,10 @@ const Navbar = () => {
         <nav>
             <ul className="navicon">
                 <li>
-                    <a><i className="fab fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/clearocityofficial"><i className="fab fa-facebook"></i></a>
                 </li>
                 <li>
-                    <a><i className="fab fa-instagram"></i></a>
-                </li>
-                <li>
-                    <a><i className="far fa-envelope"></i></a>
+                    <a href="https://www.instagram.com/clearocity/"><i className="fab fa-instagram"></i></a>
                 </li>
                 <li className="right">
                     {!cart ?
@@ -68,7 +65,6 @@ const Navbar = () => {
                         ></i></a>
                     }
                 </li>
-
                     {loggedUser.check ?
                     <>
                         <li className="right">
@@ -95,30 +91,31 @@ const Navbar = () => {
                             {cart.cartItems.map((item, idx) => {
                                 return(
                                     <li key={idx} className="row">
-                                        <div className="col text-center">
+                                        <div className="col-4 text-center">
                                             <h6>{item.product.title}</h6>
                                             <img src={`${item.product.imageKey}`} />
                                         </div>
-                                        <div className="col-6 text-center">
-                                            <h6>${item.product.price}</h6>
-                                            <p>{item.product.description}</p>
-                                        </div>
-                                        <div className="col-3 text-center">
-                                            <h6>
-                                            Quantity: {item.quantity}&nbsp; 
-                                            <i className="fas fa-chevron-up" onClick={() => updateQty(item.quantity+1, item.product._id)}></i>
-                                            {item.quantity > 1 ?
-                                                <i className="fas fa-chevron-down" onClick={() => updateQty(item.quantity-1, item.product._id)}></i>
-                                                :
-                                                ""
-                                            }
+                                        <div className="col-7 text-center">
+                                            <h6>Qty: {item.quantity} &nbsp; 
+                                                <i className="fas fa-chevron-up" onClick={() => updateQty(item.quantity+1, item.product._id)}></i>
+                                                {item.quantity > 1 ?
+                                                    <i className="fas fa-chevron-down" onClick={() => updateQty(item.quantity-1, item.product._id)}></i>
+                                                    :
+                                                    ""
+                                                }
                                             </h6>
-                                            <button className="btn-sm btn-outline-danger removeBtn" onClick={() => removeFromCart(item.product._id)}>Remove</button>
+                                            <p>{item.product.description}</p>
+                                            <h6>
+                                                ${addZeroes(item.product.price * item.quantity)}
+                                            </h6>
+                                        </div>
+                                        <div className="col-1">
+                                            <i className="fas fa-times" onClick={() => removeFromCart(item.product._id)}></i>
                                         </div>
                                     </li>
                                     )
                                 })}
-                                <h6 className="text-center">Total: ${addZeroes(cart.bill)}</h6>
+                                <h6 className="text-center">Cart Total: ${addZeroes(cart.bill)}</h6>
                             </ul>
                         </div>
                         <div className="modal-footer">

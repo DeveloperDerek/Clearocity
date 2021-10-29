@@ -186,7 +186,6 @@ border: none;
 box-shadow: 1px 4px 15px #dec05f;
 }
 
-
 .price-tier .body p {
   font-size: 21px;
   font-weight: bold;
@@ -464,17 +463,18 @@ box-shadow: 1px 4px 15px #dec05f;
 }
 
 .register .toLogin,
-.login .toRegister,
-.toPay {
+.login .toRegister {
   float: right;
   text-decoration: none;
   color: #46749d;
 }
 
+
 .shipping .toHome {
   float: left;
   text-decoration: none;
   color: #46749d;
+  font-size: 12px;
 }
 
 /* FOOTER */
@@ -521,6 +521,7 @@ box-shadow: 1px 4px 15px #dec05f;
 .footer ul li a {
   font-size: 16px;
   text-decoration: none;
+  color: white;
 }
 
 .social-icons {
@@ -549,7 +550,7 @@ box-shadow: 1px 4px 15px #dec05f;
 /* SHIPPING */
 
 .shipping {
-  padding: 0 6%;
+  margin: 40px 6%;
 }
 
 .shipping img {
@@ -566,7 +567,6 @@ box-shadow: 1px 4px 15px #dec05f;
 
 .shipping button {
   cursor: pointer;
-  display: inline-block;
   background-color: #46749d;
   background-clip: border-box;
   box-sizing: border-box;
@@ -577,6 +577,9 @@ box-shadow: 1px 4px 15px #dec05f;
   padding: 10px;
   text-align: center;
   position: relative;
+  float: right;
+  font-size: 14px;
+  margin-bottom: 14px;
 }
 
 .cart {
@@ -791,6 +794,7 @@ box-shadow: 1px 4px 15px #dec05f;
 
 .logoutt {
   margin:0 auto;
+  margin-bottom: 10px;
   display:block;
   width: 120px;
   padding-left: 0;
@@ -831,7 +835,7 @@ box-shadow: 1px 4px 15px #dec05f;
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 868px) {
   /* For desktop: */
   .tri-tier {
       margin: 20px 6%;

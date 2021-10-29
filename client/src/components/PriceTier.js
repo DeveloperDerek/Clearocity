@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../utils/UserContext";
 import left from "../images/1.png";
 import mid from "../images/2.png";
 import right from "../images/3.png";
 import axios from "axios";
-// "6167575a0a5b93e68963f72b"
+import { navigate } from "@reach/router";
+
 const PriceTier = () => {
-    
+    const {loggedUser} = useContext(UserContext);
+
     const addProduct = (id) => {
+        if(!loggedUser.check) {
+            navigate("/login")
+        }
         const data = { productId:id, quantity:1 }
         axios
         .post("http://localhost:9000/api/cart/addToCart",

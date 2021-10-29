@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "@reach/router";
 
 const Footer = () => {
     const [legal, setLegal] = useState(false);
@@ -57,16 +56,13 @@ const Footer = () => {
                             <a href="/">Home</a>
                         </li>
                         <li>
-                            <a href="/account">Track Order</a>
+                            <a href="/search-order">Track Order</a>
                         </li>
                         <li>
-                            <a>Contact Us</a>
+                            <a href="/policies/faq">FAQ</a>
                         </li>
                         <li>
-                            <a>FAQ</a>
-                        </li>
-                        <li>
-                            <a>Disclaimer</a>
+                            <a href="/policies/disclaimer">Disclaimer</a>
                         </li>
                     </ul>
                     :
@@ -76,13 +72,10 @@ const Footer = () => {
                 <div className="column">
                     <ul className="social-icons">
                         <li>
-                            <a><i className="fab fa-facebook"></i></a>
+                            <a href="https://www.facebook.com/clearocityofficial"><i className="fab fa-facebook"></i></a>
                         </li>
                         <li>
-                            <a><i className="fab fa-instagram"></i></a>
-                        </li>
-                        <li>
-                            <a><i className="far fa-envelope"></i></a>
+                            <a href="https://www.instagram.com/clearocity/"><i className="fab fa-instagram"></i></a>
                         </li>
                     </ul>
                 </div>

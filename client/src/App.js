@@ -15,6 +15,8 @@ import PrivacyPage from './views/PrivacyPage';
 import RefundPage from './views/RefundPage';
 import ShippingPage from './views/ShippingPage';
 import TermsServicePage from './views/TermsServicePage';
+import DisclaimerPage from './views/DisclaimerPage';
+import FaqPage from "./views/FaqPage";
 
 function App() {
   const [loggedUser, setLoggedUser] = useState({
@@ -50,6 +52,8 @@ function App() {
       <RefundPage path="/policies/refund" />
       <ShippingPage path="/policies/shipping" />
       <TermsServicePage path="/policies/terms-and-service" />
+      <DisclaimerPage path="/policies/disclaimer" />
+      <FaqPage path="/policies/faq" />
     </Router>
     </UserContext.Provider>
     </>
