@@ -32,7 +32,7 @@ const PriceTier = () => {
                             <img src={left} />
                             <h5 className="price-tag">$28 / Bottle</h5>
                             <button onClick={() => addProduct("6167575a0a5b93e68963f72b")}>Add to Cart</button>
-                            <p className="shipping">+ Shipping</p>
+                            <p className="shipping">Free Shipping</p>
                             <p className="total-price"><span>$60</span> $27.95</p>
                         </div>
                     </div>

@@ -3,6 +3,7 @@ const Cart = require("../models/cart.model");
 const Order = require("../models/order.model");
 const User = require("../models/user.model");
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const nodemailer = require("nodemailer");
 
 const addZeroes = (num) => {
     const value = toString(num);
@@ -51,6 +52,7 @@ module.exports = {
     },
     async createPaymentIntent (req, res) {
         let cart = await Cart.findOne({ user: req.user._id });
+        let addy = await Address.findOne({ _id: req.params.id });
         // Create a PaymentIntent with the order amount and currency
         let { id } = req.body
         try {
