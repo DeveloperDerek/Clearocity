@@ -49,7 +49,7 @@ module.exports = {
         await Address.create(req.body)
             .then((address) => res.json(address))
             .catch((err) => res.status(400).json(err))
-    },
+    },kjn
     async createPaymentIntent (req, res) {
         let cart = await Cart.findOne({ user: req.user._id });
         let addy = await Address.findOne({ _id: req.params.id });
