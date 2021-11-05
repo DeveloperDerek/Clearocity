@@ -1,7 +1,6 @@
 const Address = require("../models/address.model");
 const Cart = require("../models/cart.model");
 const Order = require("../models/order.model");
-const User = require("../models/user.model");
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const nodemailer = require("nodemailer");
 
@@ -49,7 +48,7 @@ module.exports = {
         await Address.create(req.body)
             .then((address) => res.json(address))
             .catch((err) => res.status(400).json(err))
-    },kjn
+    },
     async createPaymentIntent (req, res) {
         let cart = await Cart.findOne({ user: req.user._id });
         let addy = await Address.findOne({ _id: req.params.id });
@@ -66,18 +65,42 @@ module.exports = {
             if (!payment) {
                 throw Error('Payment failed')
             } else {
-                await Order.create({
+                const order = await Order.create({
                     user: req.user._id,
                     cartItems: cart.cartItems,
                     bill: cart.bill,
                     address: req.params.id
                 });
                 await Cart.findByIdAndDelete({ _id: cart._id })
-                // return res.status(201).send(order);
-                res.json({
-                    message: "Payment successful",
-                    success: true
-                })
+                // create reusable transporter object using the default SMTP transport
+                let transporter = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                        type: 'OAuth2',
+                        user: process.env.MAIL_USERNAME,
+                        pass: process.env.MAIL_PASSWORD,
+                        clientId: process.env.OAUTH_CLIENTID,
+                        clientSecret: process.env.OAUTH_CLIENT_SECRET,
+                        refreshToken: process.env.OAUTH_REFRESH_TOKEN
+                    }
+                });
+                let mailOptions = {
+                    from: 'bderekqho@gmail.com',
+                    to: addy.email,
+                    subject: 'CLEAROCITYSKINCARE ORDER NUMBER',
+                    text: `Thank you ${order} for purchasing from clearocity, your confirmation order number is ${order._id}`
+                };
+                transporter.sendMail(mailOptions, function(err, data) {
+                    if (err) {
+                        console.log("Error " + err);
+                    } else {
+                        console.log("Email sent successfully");
+                        res.json({
+                            message: "Payment successful",
+                            success: true
+                        })
+                    }
+                });
             }
         } catch (error) {
             console.log("Error", error)
@@ -97,5 +120,36 @@ module.exports = {
             .populate('address')
             .populate('cartItems.product')
         return res.json(order)
+    },
+    // async..await is not allowed in global scope, must use a wrapper
+    async testMail(req, res) {
+
+        // create reusable transporter object using the default SMTP transport
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                type: 'OAuth2',
+                user: process.env.MAIL_USERNAME,
+                pass: process.env.MAIL_PASSWORD,
+                clientId: process.env.OAUTH_CLIENTID,
+                clientSecret: process.env.OAUTH_CLIENT_SECRET,
+                refreshToken: process.env.OAUTH_REFRESH_TOKEN
+            }
+        });
+
+        let mailOptions = {
+            from: 'bderekqho@gmail.com',
+            to: 'leolang1203@gmail.com',
+            subject: 'Nodemailer Project',
+            text: 'Hi from your nodemailer project'
+        };
+
+        transporter.sendMail(mailOptions, function(err, data) {
+            if (err) {
+                console.log("Error " + err);
+            } else {
+                console.log("Email sent successfully");
+            }
+        });
     }
 }

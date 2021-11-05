@@ -7,5 +7,7 @@ router.post("/create-payment-intent/:id", jwtAuth, orderController.createPayment
 router.get("/view", jwtAuth, orderController.viewOrders);
 router.get("/single-view/:id", orderController.viewOrder);
 router.post("/create-address", orderController.createAddress);
+router.post("/testmail", orderController.testMail);
+
 
 module.exports = router;
